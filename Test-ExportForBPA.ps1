@@ -89,8 +89,10 @@ foreach ($itemFolder in $itemsFolders) {
     elseif ($itemType -ieq "report")
     {
         $reportPath = "$itemFolderPath\report.json"
+        $toolOutputReportResultsFolderPath = "$exportLocation\rulesOutput\Report_testresults_$($workspaceId)"
 
-        Start-Process -FilePath "$pbiInspectorPath" -ArgumentList "-pbipreport ""$reportPath"" -rules ""$pbiInspectorRulesPath"" -formats ""ADO""" -NoNewWindow -Wait -RedirectStandardOutput $toolOutputPath
+        Start-Process -FilePath "$pbiInspectorPath" -ArgumentList "-pbipreport ""$reportPath""  -rules ""$pbiInspectorRulesPath"" -formats ADO" -NoNewWindow -Wait -RedirectStandardOutput $toolOutputPath
+        Start-Process -FilePath "$pbiInspectorPath" -ArgumentList "-pbipreport ""$reportPath""  -rules ""$pbiInspectorRulesPath"" -formats JSON -output ""$toolOutputReportResultsFolderPath"""
     }
     else {
         throw "Invalid item type: $itemType"
