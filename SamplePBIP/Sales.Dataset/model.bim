@@ -3,7 +3,7 @@
   "model": {
     "annotations": [
       {
-        "name": "PBIDesktopVersion",
+        "name":  "PBIDesktopVersion",
         "value": "2.122.442.0 (23.10)"
       },
       {
